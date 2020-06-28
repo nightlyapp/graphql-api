@@ -13,6 +13,8 @@ import {
   PrimaryKey,
   BeforeCreate,
   HasMany,
+  ForeignKey,
+  BelongsTo,
 } from "sequelize-typescript";
 import { Geolocation } from "./geolocation";
 // import { TinyIntegerDataType } from "sequelize/types";
@@ -39,8 +41,18 @@ export class Pub extends Model<Pub> {
   })
   name!: string;
 
-  @HasMany(() => Geolocation, "pubId")
-  geolocations!: Geolocation[];
+  // @HasMany(() => Geolocation, "pubId")
+  // geolocations!: Geolocation[];
+
+  @ForeignKey(() => Geolocation)
+  @Column({
+    allowNull: false,
+    type: DataType.INTEGER.UNSIGNED,
+  })
+  geolocationId!: string;
+
+  @BelongsTo(() => Geolocation, "geolocationId")
+  geolocation!: Geolocation;
 
   @CreatedAt
   createdAt!: Date;

@@ -12,6 +12,14 @@ module.exports.up = (queryInterface, DataTypes) => {
         allowNull: false,
         type: DataTypes.STRING
       },
+      geolocationId: {
+        allowNull: false,
+        references: {
+          key: "id",
+          model: "geolocations",
+        },
+        type: DataTypes.INTEGER.UNSIGNED,
+      },
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE
