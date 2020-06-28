@@ -2,14 +2,14 @@ module.exports.up = (queryInterface, DataTypes) => {
   return queryInterface.createTable(
     "geolocations",
     {
-      id: {
+      // id: {
+      //   allowNull: false,
+      //   autoIncrement: true,
+      //   type: DataTypes.INTEGER.UNSIGNED,
+      // },
+      geolocationId: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER.UNSIGNED,
-      },
-      pubId: {
-        allowNull: false,
         references: {
           key: "id",
           model: "pubs",
