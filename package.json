@@ -7,9 +7,9 @@
     "db:migrate": "sequelize db:migrate",
     "db:migrate:undo": "sequelize db:migrate:undo",
     "db:seed:all": "sequelize db:seed:all",
-    "build": "tsc",
-    "watch": "ts-node-dev --respawn index.dev.ts",
-    "start": "node index.dev.js"
+    "build": "rimraf dist && tsc",
+    "watch": "ts-node-dev --respawn index.ts",
+    "start": "sequelize db:migrate && node -r ./prod-paths.js ./dist/index.js"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.32",
@@ -17,9 +17,12 @@
     "@types/express": "^4.17.6",
     "@types/helmet": "0.0.47",
     "@types/node": "^14.0.13",
+    "@types/validator": "^13.1.0",
     "dotenv": "^8.2.0",
     "module-alias": "^2.2.2",
+    "rimraf": "^3.0.2",
     "ts-node-dev": "^1.0.0-pre.49",
+    "tsconfig-paths": "^3.9.0",
     "typescript": "^3.9.5"
   },
   "dependencies": {
@@ -30,11 +33,11 @@
     "helmet": "^3.23.1",
     "mysql2": "^2.1.0",
     "reflect-metadata": "^0.1.13",
-    "sequelize-cli": "^6.1.0",
     "sequelize": "^5.21.13",
+    "sequelize-cli": "^6.1.0",
     "sequelize-typescript": "^1.1.0"
   },
   "_moduleAliases": {
-    "#root": "./src"
+    "#root": "./dist/src"
   }
 }
