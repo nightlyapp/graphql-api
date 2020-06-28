@@ -1,7 +1,7 @@
-import * as Query from "./resolvers/Query";
+import * as PubQuery from "./pub/query";
+import * as PubMutation from "./pub/mutation";
 
-const resolvers = {
-  Query,
+export default {
+  ...PubQuery,
+  ...PubMutation,
 };
-
-export default resolvers;

@@ -1,12 +1,12 @@
-import { Pub } from "#root/db/models/pub";
+import { Pub as Pubs } from "#root/db/models/pub";
 import { Geolocation } from "#root/db/models/geolocation";
 
-const Query = {
-  geolocation: (pub: Pub) => {
+const Pub = {
+  geolocation: (pub: Pubs) => {
     return Geolocation.findAll({
       include: [
         {
-          model: Pub,
+          model: Pubs,
           where: { id: pub.id },
         },
       ],
@@ -14,5 +14,15 @@ const Query = {
     });
   },
 };
+const Query = {
+  pub: (_: any, { id }: any, context: any) => {
+    return Pubs.findOne({ where: { id } })
+      .then((data) => data)
+      .catch((e) => console.log(e));
+  },
+  pubs: () => {
+    return Pubs.findAll();
+  },
+};
 
-export default Query;
+export { Pub, Query };
