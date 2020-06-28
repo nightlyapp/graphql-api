@@ -10,10 +10,10 @@ const PORT = accessEnv("PORT", 7000);
 
 const apolloServer = new ApolloServer({ resolvers, typeDefs });
 
-const app = express();
+const app = express.default();
 
 app.use(
-  cors({
+  cors.default({
     origin: (origin, cb) => cb(null, true),
     credentials: true,
     preflightContinue: true,
