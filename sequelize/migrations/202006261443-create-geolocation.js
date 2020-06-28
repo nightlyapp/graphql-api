@@ -4,12 +4,7 @@ module.exports.up = (queryInterface, DataTypes) => {
     {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER.UNSIGNED,
-      },
-      pubId: {
-        allowNull: false,
         references: {
           key: "id",
           model: "pubs",

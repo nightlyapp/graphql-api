@@ -2,12 +2,9 @@ import {
   Table,
   Column,
   Model,
-  HasMany,
   CreatedAt,
   UpdatedAt,
   DeletedAt,
-  AllowNull,
-  BelongsToMany,
   DataType,
   BelongsTo,
   ForeignKey,
@@ -22,9 +19,9 @@ import { Pub } from "./pub";
   tableName: "geolocations",
 })
 export class Geolocation extends Model<Geolocation> {
+  @ForeignKey(() => Geolocation)
   @Column({
     allowNull: false,
-    autoIncrement: true,
     primaryKey: true,
     type: DataType.INTEGER.UNSIGNED,
   })
@@ -36,14 +33,7 @@ export class Geolocation extends Model<Geolocation> {
   })
   name!: string;
 
-  @ForeignKey(() => Pub)
-  @Column({
-    allowNull: false,
-    type: DataType.INTEGER.UNSIGNED,
-  })
-  pubId!: string;
-
-  @BelongsTo(() => Pub, "pubId")
+  @BelongsTo(() => Pub, "id")
   pub!: Pub;
 
   @CreatedAt

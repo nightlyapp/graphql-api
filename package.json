@@ -22,8 +22,8 @@
     "module-alias": "^2.2.2",
     "rimraf": "^3.0.2",
     "ts-node-dev": "^1.0.0-pre.49",
-    "tsconfig-paths": "^3.9.0",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.5",
+    "tsconfig-paths": "^3.9.0"
   },
   "dependencies": {
     "apollo-server": "^2.15.0",
@@ -38,6 +38,6 @@
     "sequelize-typescript": "^1.1.0"
   },
   "_moduleAliases": {
-    "#root": "./dist/src"
+    "#root": "./src"
   }
 }

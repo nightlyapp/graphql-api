@@ -8,13 +8,17 @@ const Pub = gql`
   }
 
   extend type Mutation {
-    createPub(name: String!): Pub
+    createPub(name: String!, geolocation: GeolocationInput!): Pub
   }
 
   type Pub {
     id: ID!
     name: String!
     geolocation: [Geolocation!]!
+  }
+
+  input GeolocationInput {
+    name: String!
   }
 `;
 
