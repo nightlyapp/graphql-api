@@ -39,8 +39,8 @@ export class Pub extends Model<Pub> {
   })
   name!: string;
 
-  @HasMany(() => Geolocation)
-  geolocations!: Geolocation;
+  @HasMany(() => Geolocation, "pubId")
+  geolocations!: Geolocation[];
 
   @CreatedAt
   createdAt!: Date;

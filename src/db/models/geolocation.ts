@@ -9,10 +9,10 @@ import {
   AllowNull,
   BelongsToMany,
   DataType,
-  ForeignKey,
   BelongsTo,
+  ForeignKey,
 } from "sequelize-typescript";
-import { Pub } from "./Pub";
+import { Pub } from "./pub";
 
 @Table({
   defaultScope: {
@@ -43,7 +43,7 @@ export class Geolocation extends Model<Geolocation> {
   })
   pubId!: string;
 
-  @BelongsTo(() => Pub)
+  @BelongsTo(() => Pub, "pubId")
   pub!: Pub;
 
   @CreatedAt

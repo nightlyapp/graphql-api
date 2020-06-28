@@ -1,20 +1,15 @@
 import { gql } from "apollo-server";
+import Pub from "./pub/type";
+import Geolocation from "./geolocation/type";
 
-const typeDefs = gql`
-  type Pub {
-    id: ID!
-    name: String!
-    geolocation: [Geolocation!]!
-  }
-  type Geolocation {
-    id: ID!
-    pubId: ID!
-    name: String!
-  }
-
-  type Query {
-    pubs: [Pub!]!
-  }
-`;
+const typeDefs = [
+  gql`
+    type Query {
+      pubs: [Pub!]!
+    }
+  `,
+  Pub,
+  Geolocation,
+];
 
 export default typeDefs;
