@@ -13,7 +13,7 @@ const apolloServer = new ApolloServer({ resolvers, typeDefs });
 
 const app = express.default();
 
-app.use("/", express.static(path.join(__dirname, "../../website")));
+app.use("/", express.static(path.join(__dirname, "../../../website")));
 
 app.use(
   cors.default({
