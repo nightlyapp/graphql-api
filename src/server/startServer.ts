@@ -1,6 +1,7 @@
 import { ApolloServer } from "apollo-server-express";
 import * as cors from "cors";
 import * as express from "express";
+import helmet from "helmet";
 import path from "path";
 
 import resolvers from "#root/graphql/resolvers";
@@ -14,6 +15,7 @@ const apolloServer = new ApolloServer({ resolvers, typeDefs });
 const app = express.default();
 
 app.use("/", express.static(path.join(__dirname, "../../../website")));
+app.use(helmet());
 
 app.use(
   cors.default({

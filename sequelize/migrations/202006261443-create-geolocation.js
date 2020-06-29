@@ -11,9 +11,21 @@ module.exports.up = (queryInterface, DataTypes) => {
         },
         type: DataTypes.INTEGER.UNSIGNED,
       },
-      name: {
+      address: {
         allowNull: false,
         type: DataTypes.STRING,
+      },
+      cep: {
+        allowNull: false,
+        type: DataTypes.STRING,
+      },
+      latitude: {
+        allowNull: false,
+        type: DataTypes.FLOAT,
+      },
+      longitude: {
+        allowNull: false,
+        type: DataTypes.FLOAT,
       },
       createdAt: {
         allowNull: false,
