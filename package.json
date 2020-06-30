@@ -9,7 +9,8 @@
     "db:seed:all": "sequelize db:seed:all",
     "build": "rimraf dist && tsc",
     "watch": "ts-node-dev --respawn index.ts",
-    "start": "yarn build && sequelize db:migrate && node -r ./prod-paths.js ./dist/index.js"
+    "prestart": "yarn build && sequelize db:migrate",
+    "start": "node -r ./prod-paths.js ./dist/index.js"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.32",
