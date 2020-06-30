@@ -1,9 +1,17 @@
 import { gql } from "apollo-server";
 
 const Geolocation = gql`
+  extend type Query {
+    geolocation(id: ID!): Geolocation
+    geolocations: [Geolocation!]!
+  }
+
   type Geolocation {
-    id: ID!
-    name: String!
+    id: ID
+    address: String
+    cep: String
+    latitude: Float
+    longitude: Float
   }
 `;
 

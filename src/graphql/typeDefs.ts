@@ -3,6 +3,6 @@ import Pub from "./pub/type";
 import Base from "./base";
 import Geolocation from "./geolocation/type";
 
-const typeDefs = [Base, Pub, Geolocation];
+const typeDefs = [Base, Geolocation, Pub];
 
 export default typeDefs;

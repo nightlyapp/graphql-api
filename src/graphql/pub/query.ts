@@ -3,25 +3,19 @@ import { Geolocation } from "#root/db/models/geolocation";
 
 const Pub = {
   geolocation: (pub: Pubs) => {
-    return Geolocation.findAll({
-      include: [
-        {
-          model: Pubs,
-          where: { id: pub.id },
-        },
-      ],
-      order: [["name", "ASC"]],
-    });
+    return Geolocation.findAll();
   },
 };
 const Query = {
   pub: (_: any, { id }: any, context: any) => {
-    return Pubs.findOne({ where: { id } })
+    return Pubs.findOne({ where: { id }, include: [Geolocation] })
       .then((data) => data)
       .catch((e) => console.log(e));
   },
   pubs: () => {
-    return Pubs.findAll();
+    return Pubs.findAll({
+      include: [Geolocation],
+    });
   },
 };
 

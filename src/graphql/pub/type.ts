@@ -1,25 +1,35 @@
 import { gql } from "apollo-server";
 import Geolocation from "../geolocation/type";
 
-const Pub = gql`
+const PubConst = gql`
   extend type Query {
     pub(id: ID!): Pub
     pubs: [Pub!]!
   }
 
   extend type Mutation {
-    createPub(name: String!, geolocation: GeolocationInput!): Pub
+    createPub(pub: PubInput!): Pub!
   }
 
   type Pub {
     id: ID!
     name: String!
-    geolocation: [Geolocation!]!
+    openTime: String!
+    closeTime: String!
+    geolocation: Geolocation!
   }
-
-  input GeolocationInput {
+  input PubInput {
     name: String!
+    openTime: String!
+    closeTime: String!
+    geolocation: GeolocationInput!
+  }
+  input GeolocationInput {
+    address: String!
+    cep: String!
+    latitude: Float!
+    longitude: Float!
   }
 `;
 
-export default Pub;
+export default PubConst;

@@ -41,6 +41,18 @@ export class Pub extends Model<Pub> {
   })
   name!: string;
 
+  @Column({
+    allowNull: false,
+    type: DataType.TIME,
+  })
+  openTime!: string;
+
+  @Column({
+    allowNull: false,
+    type: DataType.TIME,
+  })
+  closeTime!: string;
+
   @HasOne(() => Geolocation, "id")
   geolocation!: Geolocation;
 

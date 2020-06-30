@@ -31,7 +31,25 @@ export class Geolocation extends Model<Geolocation> {
     allowNull: false,
     type: DataType.STRING,
   })
-  name!: string;
+  address!: string;
+
+  @Column({
+    allowNull: false,
+    type: DataType.STRING,
+  })
+  cep!: string;
+
+  @Column({
+    allowNull: false,
+    type: DataType.FLOAT,
+  })
+  latitude!: number;
+
+  @Column({
+    allowNull: false,
+    type: DataType.FLOAT,
+  })
+  longitude!: number;
 
   @BelongsTo(() => Pub, "id")
   pub!: Pub;

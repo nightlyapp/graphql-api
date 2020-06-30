@@ -1,10 +1,11 @@
 import { Pub } from "#root/db/models/pub";
 import { Geolocation } from "#root/db/models/geolocation";
+import { values } from "sequelize/types/lib/operators";
 
 const Mutation = {
-  createPub: (_: any, args: any, context: any) => {
-    console.log(args, context);
-    return Pub.create(args, { include: [Geolocation] });
+  createPub: (_: any, data: any, context: any) => {
+    const pub: Pub = data.pub;
+    return Pub.create(pub, { include: [Geolocation] });
   },
 };
 

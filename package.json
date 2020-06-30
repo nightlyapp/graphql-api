@@ -6,6 +6,7 @@
   "scripts": {
     "db:migrate": "sequelize db:migrate",
     "db:migrate:undo": "sequelize db:migrate:undo",
+    "db:migrate:undo:all": "sequelize db:migrate:undo:all",
     "db:seed:all": "sequelize db:seed:all",
     "build": "rimraf dist && tsc",
     "watch": "ts-node-dev --respawn index.ts",
@@ -39,6 +40,6 @@
     "sequelize-typescript": "^1.1.0"
   },
   "_moduleAliases": {
-    "#root": "./dist/src"
+    "#root": "./src"
   }
 }
