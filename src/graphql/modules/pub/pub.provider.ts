@@ -1,6 +1,6 @@
-import { Injectable } from "@graphql-modules/di";
-import { Pub } from "#root/db/models/pub";
 import { Geolocation } from "#root/db/models/geolocation";
+import { Pub } from "#root/db/models/pub";
+import { Injectable } from "@graphql-modules/di";
 
 @Injectable()
 export class PubProvider {

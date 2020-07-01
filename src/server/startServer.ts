@@ -1,12 +1,11 @@
+import { GraphQlModule } from "#root/graphql";
+import accessEnv from "#root/helpers/accessEnv";
+import { GraphQLModule } from "@graphql-modules/core";
 import { ApolloServer } from "apollo-server-express";
 import * as cors from "cors";
 import * as express from "express";
 import helmet from "helmet";
 import path from "path";
-
-import accessEnv from "#root/helpers/accessEnv";
-import { GraphQLModule } from "@graphql-modules/core";
-import { GraphQlModule } from "#root/graphql";
 
 const PORT = accessEnv("PORT", 7000);
 
