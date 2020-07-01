@@ -1,10 +1,10 @@
 import { GraphQLModule } from "@graphql-modules/core";
 import typeDefs from "./schema";
 import resolvers from "./resolvers";
-import { PubProvider } from "./pub.provider";
+import { GeolocationProvider } from "./geolocation.provider";
 
-export const PubModule = new GraphQLModule({
+export const GeolocationModule = new GraphQLModule({
   typeDefs,
   resolvers,
-  providers: [PubProvider],
+  providers: [GeolocationProvider],
 });

@@ -1,11 +1,11 @@
 import { gql } from "apollo-server";
 const typeDefs = gql`
-  extend type Query {
+  type Query {
     pub(id: ID!): Pub
     pubs: [Pub!]!
   }
 
-  extend type Mutation {
+  type Mutation {
     createPub(pub: PubInput!): Pub!
   }
 
@@ -27,6 +27,9 @@ const typeDefs = gql`
     cep: String!
     latitude: Float!
     longitude: Float!
+  }
+  type Geolocation {
+    pub: Pub!
   }
 `;
 

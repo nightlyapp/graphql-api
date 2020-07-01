@@ -4,11 +4,9 @@ import * as express from "express";
 import helmet from "helmet";
 import path from "path";
 
-import resolvers from "#root/graphql/resolvers";
-import typeDefs from "#root/graphql/typeDefs";
 import accessEnv from "#root/helpers/accessEnv";
 import { GraphQLModule } from "@graphql-modules/core";
-import { GraphQlModule } from "#root/graphql/modules";
+import { GraphQlModule } from "#root/graphql";
 
 const PORT = accessEnv("PORT", 7000);
 
