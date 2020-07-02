@@ -16,7 +16,7 @@ import { ImagemSys } from "./imagemSys";
     attributes: { exclude: ["deletedAt"] },
   },
   paranoid: true,
-  tableName: "geolocations",
+  tableName: "users",
 })
 export class User extends Model<User> {
   @Column({
@@ -58,7 +58,7 @@ export class User extends Model<User> {
   @Column({
     type: DataType.ENUM(),
   })
-  sexo!: number;
+  genero!: number;
 
   @Column({
     allowNull: false,
