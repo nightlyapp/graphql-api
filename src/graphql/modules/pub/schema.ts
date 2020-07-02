@@ -1,13 +1,12 @@
 import { gql } from "apollo-server";
-import Geolocation from "../geolocation/type";
 
-const PubConst = gql`
-  extend type Query {
+const typeDefs = gql`
+  type Query {
     pub(id: ID!): Pub
     pubs: [Pub!]!
   }
 
-  extend type Mutation {
+  type Mutation {
     createPub(pub: PubInput!): Pub!
   }
 
@@ -30,6 +29,9 @@ const PubConst = gql`
     latitude: Float!
     longitude: Float!
   }
+  type Geolocation {
+    pub: Pub!
+  }
 `;
 
-export default PubConst;
+export default typeDefs;
