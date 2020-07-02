@@ -8,17 +8,18 @@ import {
   DataType,
   BelongsTo,
   ForeignKey,
+  HasOne,
 } from "sequelize-typescript";
-import { ImagemSys } from "./imagemSys";
+import { User } from "./user";
 
 @Table({
   defaultScope: {
     attributes: { exclude: ["deletedAt"] },
   },
   paranoid: true,
-  tableName: "geolocations",
+  tableName: "imagensSys",
 })
-export class User extends Model<User> {
+export class ImagemSys extends Model<ImagemSys> {
   @Column({
     allowNull: false,
     primaryKey: true,
@@ -34,41 +35,24 @@ export class User extends Model<User> {
 
   @Column({
     allowNull: false,
-    type: DataType.STRING,
+    type: DataType.INTEGER,
   })
-  email!: string;
+  size!: number;
 
   @Column({
     allowNull: false,
     type: DataType.STRING,
   })
-  password!: string;
+  key!: string;
 
   @Column({
     allowNull: false,
     type: DataType.STRING,
   })
-  cellPhone!: string;
+  url!: string;
 
-  @Column({
-    type: DataType.INTEGER.UNSIGNED,
-  })
-  idade!: number;
-
-  @Column({
-    type: DataType.ENUM(),
-  })
-  sexo!: number;
-
-  @Column({
-    allowNull: false,
-    type: DataType.INTEGER.UNSIGNED
-  })
-  @ForeignKey(() => ImagemSys)
-  profileImgId!: string;
-
-  @BelongsTo(() => ImagemSys)
-  ImagemSys!: ImagemSys;
+  @HasOne(() => User)
+  user!: User;
 
   @CreatedAt
   createdAt!: Date;
