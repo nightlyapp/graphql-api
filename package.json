@@ -11,7 +11,7 @@
     "build": "rimraf dist && tsc",
     "watch": "ts-node-dev --respawn index.ts",
     "prestart": "yarn build && sequelize db:migrate",
-    "start": "node -r ./prod-paths.js ./dist/index.js"
+    "start": "node -r ./dist/index.js"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.32",
@@ -41,6 +41,7 @@
     "sequelize-typescript": "^1.1.0"
   },
   "_moduleAliases": {
-    "#root": "./src"
+    "@root": "./dist/src",
+    "@models": "./dist/src/db/models"
   }
 }

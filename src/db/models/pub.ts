@@ -1,20 +1,12 @@
 import {
-  Table,
   Column,
-  Model,
   CreatedAt,
-  UpdatedAt,
-  DeletedAt,
   DataType,
-  AllowNull,
-  BelongsToMany,
+  DeletedAt,
   HasOne,
-  IsUUID,
-  PrimaryKey,
-  BeforeCreate,
-  HasMany,
-  ForeignKey,
-  BelongsTo,
+  Model,
+  Table,
+  UpdatedAt,
 } from "sequelize-typescript";
 import { Geolocation } from "./geolocation";
 // import { TinyIntegerDataType } from "sequelize/types";

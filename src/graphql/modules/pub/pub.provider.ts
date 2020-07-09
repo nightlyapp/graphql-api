@@ -1,5 +1,5 @@
-import { Geolocation } from "#root/db/models/geolocation";
-import { Pub } from "#root/db/models/pub";
+import { Geolocation } from "@models/geolocation";
+import { Pub } from "@models/pub";
 import { Injectable } from "@graphql-modules/di";
 
 @Injectable()
