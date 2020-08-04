@@ -12,6 +12,10 @@ module.exports.up = (queryInterface, DataTypes) => {
         allowNull: false,
         type: DataTypes.STRING
       },
+      businessName: {
+        allowNull: false,
+        type: DataTypes.STRING
+      },
       openTime: {
         allowNull: false,
         type: DataTypes.TIME

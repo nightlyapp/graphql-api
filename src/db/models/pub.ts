@@ -37,6 +37,12 @@ export class Pub extends Model<Pub> {
     allowNull: false,
     type: DataType.TIME,
   })
+  businessName!: string;
+
+  @Column({
+    allowNull: false,
+    type: DataType.TIME,
+  })
   openTime!: string;
 
   @Column({
@@ -44,12 +50,6 @@ export class Pub extends Model<Pub> {
     type: DataType.TIME,
   })
   closeTime!: string;
-
-  @Column({
-    allowNull: false,
-    type: DataType.TIME,
-  })
-  nomeComercial!: string;
 
   @HasOne(() => Geolocation, "id")
   geolocation!: Geolocation;

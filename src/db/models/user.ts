@@ -9,7 +9,7 @@ import {
   BelongsTo,
   ForeignKey,
 } from "sequelize-typescript";
-import { ImagemSys } from "./imagemSys";
+import { ImageSys } from "./imageSys";
 
 @Table({
   defaultScope: {
@@ -51,24 +51,24 @@ export class User extends Model<User> {
   cellPhone!: string;
 
   @Column({
-    type: DataType.INTEGER.UNSIGNED,
+    type: DataType.DATE,
   })
   idade!: number;
 
   @Column({
-    type: DataType.ENUM(),
+    type: DataType.INTEGER,
   })
   genero!: number;
 
   @Column({
     allowNull: false,
-    type: DataType.INTEGER.UNSIGNED
+    type: DataType.INTEGER.UNSIGNED,
   })
-  @ForeignKey(() => ImagemSys)
+  @ForeignKey(() => ImageSys)
   profileImgId!: string;
 
-  @BelongsTo(() => ImagemSys)
-  ImagemSys!: ImagemSys;
+  @BelongsTo(() => ImageSys)
+  ImagemSys!: ImageSys;
 
   @CreatedAt
   createdAt!: Date;

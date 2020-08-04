@@ -1,6 +1,6 @@
 module.exports.up = (queryInterface, DataTypes) => {
   return queryInterface.createTable(
-    "imagensSys",
+    "imagesSys",
     {
       id: {
         allowNull: false,

@@ -12,7 +12,7 @@ module.exports.up = (queryInterface, DataTypes) => {
         allowNull: false,
         references: {
           key: "id",
-          model: "imagensSys"
+          model: "imagesSys"
         },
         type: DataTypes.INTEGER.UNSIGNED
       },
@@ -32,13 +32,17 @@ module.exports.up = (queryInterface, DataTypes) => {
         allowNull: false,
         type: DataTypes.STRING
       },
-      idade: {
+      age: {
+        allowNull: false,
+        type: DataTypes.DATE
+      },
+      gender: {
+        references: {
+          key: "id",
+          model: "genders"
+        },
         allowNull: false,
         type: DataTypes.INTEGER.UNSIGNED
-      },
-      genero: {
-        allowNull: false,
-        type: DataTypes.ENUM("masculino", "feminino"),
       },
       createdAt: {
         allowNull: false,
@@ -59,4 +63,4 @@ module.exports.up = (queryInterface, DataTypes) => {
   );
 },
 
-  module.exports.down = (queryInterface) => queryInterface.dropTable("imagensSys")
+  module.exports.down = (queryInterface) => queryInterface.dropTable("users")

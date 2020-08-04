@@ -5,12 +5,12 @@ import * as express from "express";
 import helmet from "helmet";
 import path from "path";
 import { GraphQLModule } from "@graphql-modules/core";
-import { GraphQlModule } from "@root/graphql";
+import { NightlyGraphQlModule } from "@root/graphql";
 
 const PORT = accessEnv("PORT", 7000);
 
 const mainGraphQLModule = new GraphQLModule({
-  imports: [GraphQlModule],
+  imports: [NightlyGraphQlModule],
 });
 
 const apolloServer = new ApolloServer({

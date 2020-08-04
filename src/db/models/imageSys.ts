@@ -1,14 +1,12 @@
 import {
-  Table,
   Column,
-  Model,
   CreatedAt,
-  UpdatedAt,
-  DeletedAt,
   DataType,
-  BelongsTo,
-  ForeignKey,
+  DeletedAt,
   HasOne,
+  Model,
+  Table,
+  UpdatedAt,
 } from "sequelize-typescript";
 import { User } from "./user";
 
@@ -17,12 +15,13 @@ import { User } from "./user";
     attributes: { exclude: ["deletedAt"] },
   },
   paranoid: true,
-  tableName: "imagensSys",
+  tableName: "imagesSys",
 })
-export class ImagemSys extends Model<ImagemSys> {
+export class ImageSys extends Model<ImageSys> {
   @Column({
     allowNull: false,
     primaryKey: true,
+    autoIncrement: true,
     type: DataType.INTEGER.UNSIGNED,
   })
   id!: string;
