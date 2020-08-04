@@ -16,12 +16,14 @@ const typeDefs = gql`
     openTime: String!
     closeTime: String!
     geolocation: Geolocation!
+    nomeComercial: String!
   }
   input PubInput {
     name: String!
     openTime: String!
     closeTime: String!
     geolocation: GeolocationInput!
+    nomeComercial: String!
   }
   input GeolocationInput {
     address: String!

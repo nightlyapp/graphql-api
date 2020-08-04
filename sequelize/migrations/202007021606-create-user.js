@@ -1,6 +1,6 @@
 module.exports.up = (queryInterface, DataTypes) => {
   return queryInterface.createTable(
-    "pubs",
+    "users",
     {
       id: {
         allowNull: false,
@@ -8,25 +8,45 @@ module.exports.up = (queryInterface, DataTypes) => {
         primaryKey: true,
         type: DataTypes.INTEGER.UNSIGNED
       },
+      profileImgId: {
+        allowNull: false,
+        references: {
+          key: "id",
+          model: "imagesSys"
+        },
+        type: DataTypes.INTEGER.UNSIGNED
+      },
       name: {
         allowNull: false,
         type: DataTypes.STRING
       },
-      businessName: {
+      email: {
         allowNull: false,
         type: DataTypes.STRING
       },
-      openTime: {
+      password: {
         allowNull: false,
-        type: DataTypes.TIME
+        type: DataTypes.STRING
       },
-      closeTime: {
+      cellPhone: {
         allowNull: false,
-        type: DataTypes.TIME
+        type: DataTypes.STRING
+      },
+      age: {
+        allowNull: false,
+        type: DataTypes.DATE
+      },
+      gender: {
+        references: {
+          key: "id",
+          model: "genders"
+        },
+        allowNull: false,
+        type: DataTypes.INTEGER.UNSIGNED
       },
       createdAt: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
       },
       updatedAt: {
         allowNull: false,
@@ -43,4 +63,4 @@ module.exports.up = (queryInterface, DataTypes) => {
   );
 },
 
-  module.exports.down = (queryInterface) => queryInterface.dropTable("pubs")
+  module.exports.down = (queryInterface) => queryInterface.dropTable("users")

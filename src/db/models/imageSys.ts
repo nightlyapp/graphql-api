@@ -8,21 +8,20 @@ import {
   Table,
   UpdatedAt,
 } from "sequelize-typescript";
-import { Geolocation } from "./geolocation";
-// import { TinyIntegerDataType } from "sequelize/types";
+import { User } from "./user";
 
 @Table({
   defaultScope: {
     attributes: { exclude: ["deletedAt"] },
   },
   paranoid: true,
-  tableName: "pubs",
+  tableName: "imagesSys",
 })
-export class Pub extends Model<Pub> {
+export class ImageSys extends Model<ImageSys> {
   @Column({
     allowNull: false,
-    autoIncrement: true,
     primaryKey: true,
+    autoIncrement: true,
     type: DataType.INTEGER.UNSIGNED,
   })
   id!: string;
@@ -35,24 +34,24 @@ export class Pub extends Model<Pub> {
 
   @Column({
     allowNull: false,
-    type: DataType.TIME,
+    type: DataType.INTEGER,
   })
-  businessName!: string;
+  size!: number;
 
   @Column({
     allowNull: false,
-    type: DataType.TIME,
+    type: DataType.STRING,
   })
-  openTime!: string;
+  key!: string;
 
   @Column({
     allowNull: false,
-    type: DataType.TIME,
+    type: DataType.STRING,
   })
-  closeTime!: string;
+  url!: string;
 
-  @HasOne(() => Geolocation, "id")
-  geolocation!: Geolocation;
+  @HasOne(() => User)
+  user!: User;
 
   @CreatedAt
   createdAt!: Date;

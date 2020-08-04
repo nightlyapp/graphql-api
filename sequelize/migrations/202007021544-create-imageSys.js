@@ -1,6 +1,6 @@
 module.exports.up = (queryInterface, DataTypes) => {
   return queryInterface.createTable(
-    "pubs",
+    "imagesSys",
     {
       id: {
         allowNull: false,
@@ -12,21 +12,21 @@ module.exports.up = (queryInterface, DataTypes) => {
         allowNull: false,
         type: DataTypes.STRING
       },
-      businessName: {
+      size: {
+        allowNull: false,
+        type: DataTypes.INTEGER.UNSIGNED
+      },
+      key: {
         allowNull: false,
         type: DataTypes.STRING
       },
-      openTime: {
+      url: {
         allowNull: false,
-        type: DataTypes.TIME
-      },
-      closeTime: {
-        allowNull: false,
-        type: DataTypes.TIME
+        type: DataTypes.STRING
       },
       createdAt: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
       },
       updatedAt: {
         allowNull: false,
@@ -43,4 +43,4 @@ module.exports.up = (queryInterface, DataTypes) => {
   );
 },
 
-  module.exports.down = (queryInterface) => queryInterface.dropTable("pubs")
+  module.exports.down = (queryInterface) => queryInterface.dropTable("imagensSys")
