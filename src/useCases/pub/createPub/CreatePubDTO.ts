@@ -1,5 +1,8 @@
-export interface CreatePubDTO {
+import { Geolocation } from "@root/entities/Geolocation";
+
+export interface ICreatePubDTO {
   name: string;
-  cnpj: string;
-  phone: string;
+  cnpj?: string;
+  phone?: string;
+  geolocation: Geolocation;
 }

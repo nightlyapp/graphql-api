@@ -9,7 +9,7 @@ module.exports.up = (queryInterface, DataTypes) => {
           key: "id",
           model: "pubs",
         },
-        type: DataTypes.INTEGER.UNSIGNED,
+        type: DataTypes.STRING,
       },
       address: {
         allowNull: false,

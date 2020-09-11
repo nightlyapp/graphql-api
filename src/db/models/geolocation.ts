@@ -22,8 +22,9 @@ export class Geolocation extends Model<Geolocation> {
   @ForeignKey(() => Geolocation)
   @Column({
     allowNull: false,
+    autoIncrement: false,
     primaryKey: true,
-    type: DataType.INTEGER.UNSIGNED,
+    type: DataType.STRING,
   })
   id!: string;
 

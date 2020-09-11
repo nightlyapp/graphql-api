@@ -9,7 +9,6 @@ import {
   UpdatedAt,
 } from "sequelize-typescript";
 import { Geolocation } from "./geolocation";
-// import { TinyIntegerDataType } from "sequelize/types";
 
 @Table({
   defaultScope: {
@@ -21,9 +20,9 @@ import { Geolocation } from "./geolocation";
 export class Pub extends Model<Pub> {
   @Column({
     allowNull: false,
-    autoIncrement: true,
+    autoIncrement: false,
     primaryKey: true,
-    type: DataType.INTEGER.UNSIGNED,
+    type: DataType.STRING,
   })
   id!: string;
 
@@ -34,22 +33,16 @@ export class Pub extends Model<Pub> {
   name!: string;
 
   @Column({
-    allowNull: false,
-    type: DataType.TIME,
+    allowNull: true,
+    type: DataType.STRING,
   })
-  businessName!: string;
+  cnpj?: string;
 
   @Column({
-    allowNull: false,
-    type: DataType.TIME,
+    allowNull: true,
+    type: DataType.STRING,
   })
-  openTime!: string;
-
-  @Column({
-    allowNull: false,
-    type: DataType.TIME,
-  })
-  closeTime!: string;
+  phone?: string;
 
   @HasOne(() => Geolocation, "id")
   geolocation!: Geolocation;

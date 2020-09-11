@@ -1,46 +1,41 @@
-module.exports.up = (queryInterface, DataTypes) => {
+(module.exports.up = (queryInterface, DataTypes) => {
   return queryInterface.createTable(
     "pubs",
     {
       id: {
         allowNull: false,
-        autoIncrement: true,
+        autoIncrement: false,
         primaryKey: true,
-        type: DataTypes.INTEGER.UNSIGNED
+        type: DataTypes.STRING,
       },
       name: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
       },
-      businessName: {
-        allowNull: false,
-        type: DataTypes.STRING
+      cnpj: {
+        allowNull: true,
+        type: DataTypes.STRING,
       },
-      openTime: {
-        allowNull: false,
-        type: DataTypes.TIME
-      },
-      closeTime: {
-        allowNull: false,
-        type: DataTypes.TIME
+      phone: {
+        allowNull: true,
+        type: DataTypes.STRING,
       },
       createdAt: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
       },
       deletedAt: {
         allowNull: true,
-        type: DataTypes.DATE
-      }
+        type: DataTypes.DATE,
+      },
     },
     {
-      charset: "utf8"
+      charset: "utf8",
     }
   );
-},
-
-  module.exports.down = (queryInterface) => queryInterface.dropTable("pubs")
+}),
+  (module.exports.down = (queryInterface) => queryInterface.dropTable("pubs"));

@@ -9,7 +9,7 @@
     "db:migrate:undo:all": "sequelize db:migrate:undo:all",
     "db:seed:all": "sequelize db:seed:all",
     "build": "rimraf dist && tsc",
-    "watch": "ts-node-dev --respawn index.ts",
+    "watch": "ts-node-dev index.ts",
     "prestart": "yarn build && sequelize db:migrate",
     "start": "node -r ./dist/index.js"
   },
@@ -29,9 +29,6 @@
     "typescript": "^3.9.5"
   },
   "dependencies": {
-    "@graphql-modules/core": "^0.7.17",
-    "apollo-server": "^2.15.0",
-    "apollo-server-express": "^2.15.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "helmet": "^3.23.1",

@@ -1,6 +1,10 @@
 import { CreatePubController } from "./CreatePubController";
 import { CreatePubUseCase } from "./CreatePubUseCase";
+import { MySqlPubRepository } from "../../../repositories/implementations/MySqlPubRepository";
 
-const pubController = new CreatePubController();
+const mySqlPubRepository = new MySqlPubRepository();
 
-const teste = new CreatePubUseCase(pubController);
+const createPubUseCase = new CreatePubUseCase(mySqlPubRepository);
+const createPubController = new CreatePubController(createPubUseCase);
+
+export { createPubController };

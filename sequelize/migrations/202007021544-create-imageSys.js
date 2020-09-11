@@ -43,4 +43,4 @@ module.exports.up = (queryInterface, DataTypes) => {
   );
 },
 
-  module.exports.down = (queryInterface) => queryInterface.dropTable("imagensSys")
+  module.exports.down = (queryInterface) => queryInterface.dropTable("imagesSys")
